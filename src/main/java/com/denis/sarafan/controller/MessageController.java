@@ -1,5 +1,6 @@
 package com.denis.sarafan.controller;
 
+import com.denis.sarafan.exceptions.NotFoundException;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -28,7 +29,7 @@ public class MessageController {
         return messages.stream()
                 .filter(message -> message.get("id").equals(id))
                 .findFirst()
-                .orElseThrow();
+                .orElseThrow(NotFoundException::new);
     }
 
 }
