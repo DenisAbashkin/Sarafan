@@ -27,7 +27,7 @@ public class MessageController {
     }
 
     @GetMapping("{id}")
-    @JsonView(Views.IdName.class)
+    @JsonView(Views.FullMessage.class)
     public Message getOne(@PathVariable("id") Message message){
         return message;
 
