@@ -1,7 +1,9 @@
 package com.denis.sarafan.controller;
 
 import com.denis.sarafan.domain.Message;
+import com.denis.sarafan.domain.Views;
 import com.denis.sarafan.repo.MessageRepo;
+import com.fasterxml.jackson.annotation.JsonView;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -25,6 +27,7 @@ public class MessageController {
     }
 
     @GetMapping("{id}")
+    @JsonView(Views.IdName.class)
     public Message getOne(@PathVariable("id") Message message){
         return message;
 
