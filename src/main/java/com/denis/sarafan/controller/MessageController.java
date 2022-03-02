@@ -54,4 +54,11 @@ public class MessageController {
 
         return messageFromDb;
     }
+
+    @DeleteMapping("{id}")
+    public void delete(@PathVariable String id){
+        Map<String, String> message = getMessage(id);
+
+        messages.remove(message);
+    }
 }
